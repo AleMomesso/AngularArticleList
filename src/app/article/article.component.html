@@ -1,0 +1,46 @@
+<h1 class="title">Insert Article</h1>
+
+<div class="container">
+  <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+    <!--<h5 *ngIf="success">Your form is valid!</h5>-->
+
+    <label>
+      Title:
+      <input type="text" formControlName="title" [(ngModel)]=Titolo>
+      <div *ngIf="submitted && messageForm.controls.title.errors" class="error">
+        <div *ngIf="messageForm.controls.title.errors.required">A Title is required</div>
+      </div>
+    </label>
+
+    <label>
+      Author:
+      <input type="text" formControlName="author" [(ngModel)]=Autore>
+      <div *ngIf="submitted && messageForm.controls.author.errors" class="error">
+        <div *ngIf="messageForm.controls.author.errors.required">An Author is required</div>
+      </div>
+    </label>
+
+    <label>
+      Text:
+      <textarea formControlName="message" [(ngModel)]=Testo></textarea>
+      <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+        <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+      </div>
+    </label>
+
+    <input type="submit" value="SUBMIT" class="cta">
+
+  </form>
+</div>
+
+<!--<div *ngIf="submitted" class="results">
+  <strong>Title:</strong>
+  <span>{{ messageForm.controls.title.value }}</span>
+
+  <strong>Author:</strong>
+  <span>{{ messageForm.controls.author.value }}</span>
+
+  <strong>Message:</strong>
+  <span>{{ messageForm.controls.message.value }}</span>
+</div>-->
